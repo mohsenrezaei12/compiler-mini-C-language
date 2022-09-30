@@ -1,0 +1,86 @@
+<char , KEYWORD >
+< space , white space > 
+<c , IDENTIFIER >
+< space , white space > 
+< = , symbol > 
+< space , white space > 
+< " , symbol > 
+<hello , IDENTIFIER >
+< " , symbol > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<int , KEYWORD >
+< space , white space > 
+<x , IDENTIFIER >
+< = , symbol > 
+< 24 , integer > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<int , KEYWORD >
+< space , white space > 
+<y , IDENTIFIER >
+< = , symbol > 
+< 30 , integer > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<int , KEYWORD >
+< space , white space > 
+<avg , IDENTIFIER >
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+< '\n' , white space > 
+<if , KEYWORD >
+< space , white space > 
+< ( , symbol > 
+<c , IDENTIFIER >
+< space , white space > 
+< == , symbol > 
+< space , white space > 
+< " , symbol > 
+<hello , IDENTIFIER >
+< " , symbol > 
+< space , white space > 
+< ) , symbol > 
+< '\n' , white space > 
+< space , white space > 
+< space , white space > 
+<for , KEYWORD >
+< space , white space > 
+< ( , symbol > 
+<int , KEYWORD >
+< space , white space > 
+<i , IDENTIFIER >
+< = , symbol > 
+< 0 , integer > 
+< ; , symbol > 
+<i , IDENTIFIER >
+< < , symbol > 
+< 10 , integer > 
+< ; , symbol > 
+<i , IDENTIFIER >
+< = , symbol > 
+<i , IDENTIFIER >
+< + , symbol > 
+< 1 , integer > 
+< ) , symbol > 
+< '\n' , white space > 
+< space , white space > 
+< space , white space > 
+< space , white space > 
+< space , white space > 
+<avg , IDENTIFIER >
+< space , white space > 
+< = , symbol > 
+< space , white space > 
+<x , IDENTIFIER >
+< space , white space > 
+< + , symbol > 
+< space , white space > 
+<y , IDENTIFIER >
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 

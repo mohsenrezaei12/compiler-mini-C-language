@@ -1,0 +1,4 @@
+int A=10 ;
+int B=12 ;
+if (A>B) print(A) ;
+else  print(B) ;

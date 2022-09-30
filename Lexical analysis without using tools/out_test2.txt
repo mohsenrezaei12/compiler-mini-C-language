@@ -1,0 +1,35 @@
+<int , KEYWORD >
+< space , white space > 
+<x , IDENTIFIER >
+< = , symbol > 
+< 2 , integer > 
+< ; , symbol > 
+< '\n' , white space > 
+<while , KEYWORD >
+< ( , symbol > 
+< space , white space > 
+<x , IDENTIFIER >
+< space , white space > 
+< <= , symbol > 
+< space , white space > 
+< 8 , integer > 
+< space , white space > 
+< ) , symbol > 
+< space , white space > 
+< '\n' , white space > 
+< '\t' , white space > 
+<x , IDENTIFIER >
+< = , symbol > 
+<x , IDENTIFIER >
+< + , symbol > 
+< 1 , integer > 
+< ; , symbol > 
+< '\n' , white space > 
+< '\t' , white space > 
+<print , KEYWORD >
+< ( , symbol > 
+<x , IDENTIFIER >
+< ) , symbol > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 

@@ -1,0 +1,41 @@
+<int , KEYWORD >
+< space , white space > 
+<A , IDENTIFIER >
+< = , symbol > 
+< 10 , integer > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<int , KEYWORD >
+< space , white space > 
+<B , IDENTIFIER >
+< = , symbol > 
+< 12 , integer > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<if , KEYWORD >
+< space , white space > 
+< ( , symbol > 
+<A , IDENTIFIER >
+< > , symbol > 
+<B , IDENTIFIER >
+< ) , symbol > 
+< space , white space > 
+<print , KEYWORD >
+< ( , symbol > 
+<A , IDENTIFIER >
+< ) , symbol > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 
+<else , KEYWORD >
+< space , white space > 
+< space , white space > 
+<print , KEYWORD >
+< ( , symbol > 
+<B , IDENTIFIER >
+< ) , symbol > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 

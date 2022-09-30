@@ -1,0 +1,5 @@
+int num1=12;
+int num2=15;
+int num ;
+
+if ( num1 > num2 ) num = num1 + num2 ; 

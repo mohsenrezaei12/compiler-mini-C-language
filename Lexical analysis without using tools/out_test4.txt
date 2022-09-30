@@ -1,0 +1,43 @@
+<int , KEYWORD >
+< space , white space > 
+<b , IDENTIFIER >
+< space , white space > 
+< = , symbol > 
+< space , white space > 
+< 45 , integer > 
+< ; , symbol > 
+< '\n' , white space > 
+< '\n' , white space > 
+<for , KEYWORD >
+< space , white space > 
+< ( , symbol > 
+<int , KEYWORD >
+< space , white space > 
+<a , IDENTIFIER >
+< space , white space > 
+< = , symbol > 
+< space , white space > 
+< 5 , integer > 
+< ; , symbol > 
+<a , IDENTIFIER >
+< <= , symbol > 
+< 20 , integer > 
+< ; , symbol > 
+<a , IDENTIFIER >
+< = , symbol > 
+<a , IDENTIFIER >
+< * , symbol > 
+< 2 , integer > 
+< ) , symbol > 
+< space , white space > 
+<print , KEYWORD >
+< ( , symbol > 
+< space , white space > 
+<b , IDENTIFIER >
+< / , symbol > 
+< 5 , integer > 
+< space , white space > 
+< ) , symbol > 
+< space , white space > 
+< ; , symbol > 
+< '\n' , white space > 

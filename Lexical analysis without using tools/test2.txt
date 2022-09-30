@@ -1,0 +1,4 @@
+int x=2;
+while( x <= 8 ) 
+	x=x+1;
+	print(x) ;
