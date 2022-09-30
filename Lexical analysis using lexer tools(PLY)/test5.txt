@@ -1,0 +1,8 @@
+char c = "hello" ;
+int x=24 ;
+int y=30 ;
+int avg ;
+
+if (c == "hello" )
+  for (int i=0;i<10;i=i+1)
+    avg = x + y;
