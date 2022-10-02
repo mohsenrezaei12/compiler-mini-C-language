@@ -1,0 +1,3011 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    DOUBLEQUOTATION
+    FOR
+    ID
+    KEYWORD
+    LCBRACKET
+    PRINT
+    RCBRACKET
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> decl_list
+Rule 2     decl_list -> decl_list decl
+Rule 3     decl_list -> decl
+Rule 4     decl -> var_decl
+Rule 5     decl -> fun_decl
+Rule 6     var_decl -> type_spec IDENT SEMICOLON
+Rule 7     var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON
+Rule 8     type_spec -> VOID
+Rule 9     type_spec -> BOOL
+Rule 10    type_spec -> INT
+Rule 11    type_spec -> FLOAT
+Rule 12    type_spec -> CHAR
+Rule 13    fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt
+Rule 14    params -> param_list
+Rule 15    params -> VOID
+Rule 16    params -> empty
+Rule 17    param_list -> param_list COMMA param
+Rule 18    param_list -> param
+Rule 19    param -> type_spec IDENT
+Rule 20    param -> type_spec IDENT LBRACKET RBRACKET
+Rule 21    compound_stmt -> local_decls stmt_list
+Rule 22    local_decls -> local_decls local_decl
+Rule 23    local_decls -> empty
+Rule 24    local_decl -> type_spec IDENT SEMICOLON
+Rule 25    local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON
+Rule 26    stmt_list -> stmt_list stmt
+Rule 27    stmt_list -> empty
+Rule 28    stmt -> expr_stmt
+Rule 29    stmt -> if_stmt
+Rule 30    stmt -> while_stmt
+Rule 31    stmt -> return_stmt
+Rule 32    expr_stmt -> expr SEMICOLON
+Rule 33    expr_stmt -> SEMICOLON
+Rule 34    while_stmt -> WHILE LPAREN expr RPAREN stmt
+Rule 35    if_stmt -> IF LPAREN expr RPAREN stmt
+Rule 36    if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt
+Rule 37    return_stmt -> RETURN SEMICOLON
+Rule 38    return_stmt -> RETURN expr SEMICOLON
+Rule 39    expr -> IDENT APPOINTMENT expr
+Rule 40    expr -> IDENT LBRACKET expr RBRACKET EQUAL expr
+Rule 41    expr -> expr OR expr
+Rule 42    expr -> expr AND expr
+Rule 43    expr -> expr EQUAL expr
+Rule 44    expr -> expr APPOINTMENT NUMBER
+Rule 45    expr -> expr LESS_THAN_EQUAL expr
+Rule 46    expr -> expr GREATER_THAN_EQUAL expr
+Rule 47    expr -> expr LESS_THAN expr
+Rule 48    expr -> expr GREATER_THAN expr
+Rule 49    expr -> expr TIMES expr
+Rule 50    expr -> expr PLUS expr
+Rule 51    expr -> expr DIVIDE expr
+Rule 52    expr -> expr MINUS expr
+Rule 53    expr -> ! expr
+Rule 54    expr -> LPAREN expr RPAREN
+Rule 55    expr -> IDENT
+Rule 56    expr -> IDENT LBRACKET expr RBRACKET
+Rule 57    expr -> IDENT LPAREN args RPAREN
+Rule 58    expr -> NUMBER
+Rule 59    arg_list -> arg_list COMMA expr
+Rule 60    arg_list -> expr
+Rule 61    args -> arg_list
+Rule 62    args -> empty
+Rule 63    empty -> <empty>
+
+Terminals, with rules where they appear
+
+!                    : 53
+AND                  : 42
+APPOINTMENT          : 39 44
+BOOL                 : 9
+CHAR                 : 12
+COMMA                : 17 59
+DIVIDE               : 51
+DOUBLEQUOTATION      : 
+ELSE                 : 36
+EQUAL                : 40 43
+FLOAT                : 11
+FOR                  : 
+GREATER_THAN         : 48
+GREATER_THAN_EQUAL   : 46
+ID                   : 
+IDENT                : 6 7 13 19 20 24 25 39 40 55 56 57
+IF                   : 35 36
+INT                  : 10
+KEYWORD              : 
+LBRACKET             : 7 20 25 40 56
+LCBRACKET            : 
+LESS_THAN            : 47
+LESS_THAN_EQUAL      : 45
+LPAREN               : 13 34 35 36 54 57
+MINUS                : 52
+NUMBER               : 44 58
+OR                   : 41
+PLUS                 : 50
+PRINT                : 
+RBRACKET             : 7 20 25 40 56
+RCBRACKET            : 
+RETURN               : 37 38
+RPAREN               : 13 34 35 36 54 57
+SEMICOLON            : 6 7 24 25 32 33 37 38
+TIMES                : 49
+VOID                 : 8 15
+WHILE                : 34
+error                : 
+
+Nonterminals, with rules where they appear
+
+arg_list             : 59 61
+args                 : 57
+compound_stmt        : 13
+decl                 : 2 3
+decl_list            : 1 2
+empty                : 16 23 27 62
+expr                 : 32 34 35 36 38 39 40 40 41 41 42 42 43 43 44 45 45 46 46 47 47 48 48 49 49 50 50 51 51 52 52 53 54 56 59 60
+expr_stmt            : 28
+fun_decl             : 5
+if_stmt              : 29
+local_decl           : 22
+local_decls          : 21 22
+param                : 17 18
+param_list           : 14 17
+params               : 13
+program              : 0
+return_stmt          : 31
+stmt                 : 26 34 35 36 36
+stmt_list            : 21 26
+type_spec            : 6 7 13 19 20 24 25
+var_decl             : 4
+while_stmt           : 30
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . decl_list
+    (2) decl_list -> . decl_list decl
+    (3) decl_list -> . decl
+    (4) decl -> . var_decl
+    (5) decl -> . fun_decl
+    (6) var_decl -> . type_spec IDENT SEMICOLON
+    (7) var_decl -> . type_spec IDENT LBRACKET RBRACKET SEMICOLON
+    (13) fun_decl -> . type_spec IDENT LPAREN params RPAREN compound_stmt
+    (8) type_spec -> . VOID
+    (9) type_spec -> . BOOL
+    (10) type_spec -> . INT
+    (11) type_spec -> . FLOAT
+    (12) type_spec -> . CHAR
+
+    VOID            shift and go to state 7
+    BOOL            shift and go to state 8
+    INT             shift and go to state 9
+    FLOAT           shift and go to state 10
+    CHAR            shift and go to state 11
+
+    program                        shift and go to state 1
+    decl_list                      shift and go to state 2
+    decl                           shift and go to state 3
+    var_decl                       shift and go to state 4
+    fun_decl                       shift and go to state 5
+    type_spec                      shift and go to state 6
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> decl_list .
+    (2) decl_list -> decl_list . decl
+    (4) decl -> . var_decl
+    (5) decl -> . fun_decl
+    (6) var_decl -> . type_spec IDENT SEMICOLON
+    (7) var_decl -> . type_spec IDENT LBRACKET RBRACKET SEMICOLON
+    (13) fun_decl -> . type_spec IDENT LPAREN params RPAREN compound_stmt
+    (8) type_spec -> . VOID
+    (9) type_spec -> . BOOL
+    (10) type_spec -> . INT
+    (11) type_spec -> . FLOAT
+    (12) type_spec -> . CHAR
+
+    $end            reduce using rule 1 (program -> decl_list .)
+    VOID            shift and go to state 7
+    BOOL            shift and go to state 8
+    INT             shift and go to state 9
+    FLOAT           shift and go to state 10
+    CHAR            shift and go to state 11
+
+    decl                           shift and go to state 12
+    var_decl                       shift and go to state 4
+    fun_decl                       shift and go to state 5
+    type_spec                      shift and go to state 6
+
+state 3
+
+    (3) decl_list -> decl .
+
+    VOID            reduce using rule 3 (decl_list -> decl .)
+    BOOL            reduce using rule 3 (decl_list -> decl .)
+    INT             reduce using rule 3 (decl_list -> decl .)
+    FLOAT           reduce using rule 3 (decl_list -> decl .)
+    CHAR            reduce using rule 3 (decl_list -> decl .)
+    $end            reduce using rule 3 (decl_list -> decl .)
+
+
+state 4
+
+    (4) decl -> var_decl .
+
+    VOID            reduce using rule 4 (decl -> var_decl .)
+    BOOL            reduce using rule 4 (decl -> var_decl .)
+    INT             reduce using rule 4 (decl -> var_decl .)
+    FLOAT           reduce using rule 4 (decl -> var_decl .)
+    CHAR            reduce using rule 4 (decl -> var_decl .)
+    $end            reduce using rule 4 (decl -> var_decl .)
+
+
+state 5
+
+    (5) decl -> fun_decl .
+
+    VOID            reduce using rule 5 (decl -> fun_decl .)
+    BOOL            reduce using rule 5 (decl -> fun_decl .)
+    INT             reduce using rule 5 (decl -> fun_decl .)
+    FLOAT           reduce using rule 5 (decl -> fun_decl .)
+    CHAR            reduce using rule 5 (decl -> fun_decl .)
+    $end            reduce using rule 5 (decl -> fun_decl .)
+
+
+state 6
+
+    (6) var_decl -> type_spec . IDENT SEMICOLON
+    (7) var_decl -> type_spec . IDENT LBRACKET RBRACKET SEMICOLON
+    (13) fun_decl -> type_spec . IDENT LPAREN params RPAREN compound_stmt
+
+    IDENT           shift and go to state 13
+
+
+state 7
+
+    (8) type_spec -> VOID .
+
+    IDENT           reduce using rule 8 (type_spec -> VOID .)
+
+
+state 8
+
+    (9) type_spec -> BOOL .
+
+    IDENT           reduce using rule 9 (type_spec -> BOOL .)
+
+
+state 9
+
+    (10) type_spec -> INT .
+
+    IDENT           reduce using rule 10 (type_spec -> INT .)
+
+
+state 10
+
+    (11) type_spec -> FLOAT .
+
+    IDENT           reduce using rule 11 (type_spec -> FLOAT .)
+
+
+state 11
+
+    (12) type_spec -> CHAR .
+
+    IDENT           reduce using rule 12 (type_spec -> CHAR .)
+
+
+state 12
+
+    (2) decl_list -> decl_list decl .
+
+    VOID            reduce using rule 2 (decl_list -> decl_list decl .)
+    BOOL            reduce using rule 2 (decl_list -> decl_list decl .)
+    INT             reduce using rule 2 (decl_list -> decl_list decl .)
+    FLOAT           reduce using rule 2 (decl_list -> decl_list decl .)
+    CHAR            reduce using rule 2 (decl_list -> decl_list decl .)
+    $end            reduce using rule 2 (decl_list -> decl_list decl .)
+
+
+state 13
+
+    (6) var_decl -> type_spec IDENT . SEMICOLON
+    (7) var_decl -> type_spec IDENT . LBRACKET RBRACKET SEMICOLON
+    (13) fun_decl -> type_spec IDENT . LPAREN params RPAREN compound_stmt
+
+    SEMICOLON       shift and go to state 14
+    LBRACKET        shift and go to state 15
+    LPAREN          shift and go to state 16
+
+
+state 14
+
+    (6) var_decl -> type_spec IDENT SEMICOLON .
+
+    VOID            reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+    BOOL            reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+    INT             reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+    FLOAT           reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+    CHAR            reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+    $end            reduce using rule 6 (var_decl -> type_spec IDENT SEMICOLON .)
+
+
+state 15
+
+    (7) var_decl -> type_spec IDENT LBRACKET . RBRACKET SEMICOLON
+
+    RBRACKET        shift and go to state 17
+
+
+state 16
+
+    (13) fun_decl -> type_spec IDENT LPAREN . params RPAREN compound_stmt
+    (14) params -> . param_list
+    (15) params -> . VOID
+    (16) params -> . empty
+    (17) param_list -> . param_list COMMA param
+    (18) param_list -> . param
+    (63) empty -> .
+    (19) param -> . type_spec IDENT
+    (20) param -> . type_spec IDENT LBRACKET RBRACKET
+    (8) type_spec -> . VOID
+    (9) type_spec -> . BOOL
+    (10) type_spec -> . INT
+    (11) type_spec -> . FLOAT
+    (12) type_spec -> . CHAR
+
+    VOID            shift and go to state 21
+    RPAREN          reduce using rule 63 (empty -> .)
+    BOOL            shift and go to state 8
+    INT             shift and go to state 9
+    FLOAT           shift and go to state 10
+    CHAR            shift and go to state 11
+
+    type_spec                      shift and go to state 18
+    params                         shift and go to state 19
+    param_list                     shift and go to state 20
+    empty                          shift and go to state 22
+    param                          shift and go to state 23
+
+state 17
+
+    (7) var_decl -> type_spec IDENT LBRACKET RBRACKET . SEMICOLON
+
+    SEMICOLON       shift and go to state 24
+
+
+state 18
+
+    (19) param -> type_spec . IDENT
+    (20) param -> type_spec . IDENT LBRACKET RBRACKET
+
+    IDENT           shift and go to state 25
+
+
+state 19
+
+    (13) fun_decl -> type_spec IDENT LPAREN params . RPAREN compound_stmt
+
+    RPAREN          shift and go to state 26
+
+
+state 20
+
+    (14) params -> param_list .
+    (17) param_list -> param_list . COMMA param
+
+    RPAREN          reduce using rule 14 (params -> param_list .)
+    COMMA           shift and go to state 27
+
+
+state 21
+
+    (15) params -> VOID .
+    (8) type_spec -> VOID .
+
+    RPAREN          reduce using rule 15 (params -> VOID .)
+    IDENT           reduce using rule 8 (type_spec -> VOID .)
+
+
+state 22
+
+    (16) params -> empty .
+
+    RPAREN          reduce using rule 16 (params -> empty .)
+
+
+state 23
+
+    (18) param_list -> param .
+
+    COMMA           reduce using rule 18 (param_list -> param .)
+    RPAREN          reduce using rule 18 (param_list -> param .)
+
+
+state 24
+
+    (7) var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .
+
+    VOID            reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    BOOL            reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    INT             reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    FLOAT           reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    CHAR            reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    $end            reduce using rule 7 (var_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+
+
+state 25
+
+    (19) param -> type_spec IDENT .
+    (20) param -> type_spec IDENT . LBRACKET RBRACKET
+
+    COMMA           reduce using rule 19 (param -> type_spec IDENT .)
+    RPAREN          reduce using rule 19 (param -> type_spec IDENT .)
+    LBRACKET        shift and go to state 28
+
+
+state 26
+
+    (13) fun_decl -> type_spec IDENT LPAREN params RPAREN . compound_stmt
+    (21) compound_stmt -> . local_decls stmt_list
+    (22) local_decls -> . local_decls local_decl
+    (23) local_decls -> . empty
+    (63) empty -> .
+
+    VOID            reduce using rule 63 (empty -> .)
+    BOOL            reduce using rule 63 (empty -> .)
+    INT             reduce using rule 63 (empty -> .)
+    FLOAT           reduce using rule 63 (empty -> .)
+    CHAR            reduce using rule 63 (empty -> .)
+    SEMICOLON       reduce using rule 63 (empty -> .)
+    IF              reduce using rule 63 (empty -> .)
+    WHILE           reduce using rule 63 (empty -> .)
+    RETURN          reduce using rule 63 (empty -> .)
+    IDENT           reduce using rule 63 (empty -> .)
+    !               reduce using rule 63 (empty -> .)
+    LPAREN          reduce using rule 63 (empty -> .)
+    NUMBER          reduce using rule 63 (empty -> .)
+    $end            reduce using rule 63 (empty -> .)
+
+    compound_stmt                  shift and go to state 29
+    local_decls                    shift and go to state 30
+    empty                          shift and go to state 31
+
+state 27
+
+    (17) param_list -> param_list COMMA . param
+    (19) param -> . type_spec IDENT
+    (20) param -> . type_spec IDENT LBRACKET RBRACKET
+    (8) type_spec -> . VOID
+    (9) type_spec -> . BOOL
+    (10) type_spec -> . INT
+    (11) type_spec -> . FLOAT
+    (12) type_spec -> . CHAR
+
+    VOID            shift and go to state 7
+    BOOL            shift and go to state 8
+    INT             shift and go to state 9
+    FLOAT           shift and go to state 10
+    CHAR            shift and go to state 11
+
+    param                          shift and go to state 32
+    type_spec                      shift and go to state 18
+
+state 28
+
+    (20) param -> type_spec IDENT LBRACKET . RBRACKET
+
+    RBRACKET        shift and go to state 33
+
+
+state 29
+
+    (13) fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .
+
+    VOID            reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+    BOOL            reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+    INT             reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+    FLOAT           reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+    CHAR            reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+    $end            reduce using rule 13 (fun_decl -> type_spec IDENT LPAREN params RPAREN compound_stmt .)
+
+
+state 30
+
+    (21) compound_stmt -> local_decls . stmt_list
+    (22) local_decls -> local_decls . local_decl
+    (26) stmt_list -> . stmt_list stmt
+    (27) stmt_list -> . empty
+    (24) local_decl -> . type_spec IDENT SEMICOLON
+    (25) local_decl -> . type_spec IDENT LBRACKET RBRACKET SEMICOLON
+    (63) empty -> .
+    (8) type_spec -> . VOID
+    (9) type_spec -> . BOOL
+    (10) type_spec -> . INT
+    (11) type_spec -> . FLOAT
+    (12) type_spec -> . CHAR
+
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for BOOL resolved as shift
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for FLOAT resolved as shift
+  ! shift/reduce conflict for CHAR resolved as shift
+    SEMICOLON       reduce using rule 63 (empty -> .)
+    IF              reduce using rule 63 (empty -> .)
+    WHILE           reduce using rule 63 (empty -> .)
+    RETURN          reduce using rule 63 (empty -> .)
+    IDENT           reduce using rule 63 (empty -> .)
+    !               reduce using rule 63 (empty -> .)
+    LPAREN          reduce using rule 63 (empty -> .)
+    NUMBER          reduce using rule 63 (empty -> .)
+    $end            reduce using rule 63 (empty -> .)
+    VOID            shift and go to state 7
+    BOOL            shift and go to state 8
+    INT             shift and go to state 9
+    FLOAT           shift and go to state 10
+    CHAR            shift and go to state 11
+
+  ! VOID            [ reduce using rule 63 (empty -> .) ]
+  ! BOOL            [ reduce using rule 63 (empty -> .) ]
+  ! INT             [ reduce using rule 63 (empty -> .) ]
+  ! FLOAT           [ reduce using rule 63 (empty -> .) ]
+  ! CHAR            [ reduce using rule 63 (empty -> .) ]
+
+    stmt_list                      shift and go to state 34
+    local_decl                     shift and go to state 35
+    empty                          shift and go to state 36
+    type_spec                      shift and go to state 37
+
+state 31
+
+    (23) local_decls -> empty .
+
+    VOID            reduce using rule 23 (local_decls -> empty .)
+    BOOL            reduce using rule 23 (local_decls -> empty .)
+    INT             reduce using rule 23 (local_decls -> empty .)
+    FLOAT           reduce using rule 23 (local_decls -> empty .)
+    CHAR            reduce using rule 23 (local_decls -> empty .)
+    SEMICOLON       reduce using rule 23 (local_decls -> empty .)
+    IF              reduce using rule 23 (local_decls -> empty .)
+    WHILE           reduce using rule 23 (local_decls -> empty .)
+    RETURN          reduce using rule 23 (local_decls -> empty .)
+    IDENT           reduce using rule 23 (local_decls -> empty .)
+    !               reduce using rule 23 (local_decls -> empty .)
+    LPAREN          reduce using rule 23 (local_decls -> empty .)
+    NUMBER          reduce using rule 23 (local_decls -> empty .)
+    $end            reduce using rule 23 (local_decls -> empty .)
+
+
+state 32
+
+    (17) param_list -> param_list COMMA param .
+
+    COMMA           reduce using rule 17 (param_list -> param_list COMMA param .)
+    RPAREN          reduce using rule 17 (param_list -> param_list COMMA param .)
+
+
+state 33
+
+    (20) param -> type_spec IDENT LBRACKET RBRACKET .
+
+    COMMA           reduce using rule 20 (param -> type_spec IDENT LBRACKET RBRACKET .)
+    RPAREN          reduce using rule 20 (param -> type_spec IDENT LBRACKET RBRACKET .)
+
+
+state 34
+
+    (21) compound_stmt -> local_decls stmt_list .
+    (26) stmt_list -> stmt_list . stmt
+    (28) stmt -> . expr_stmt
+    (29) stmt -> . if_stmt
+    (30) stmt -> . while_stmt
+    (31) stmt -> . return_stmt
+    (32) expr_stmt -> . expr SEMICOLON
+    (33) expr_stmt -> . SEMICOLON
+    (35) if_stmt -> . IF LPAREN expr RPAREN stmt
+    (36) if_stmt -> . IF LPAREN expr RPAREN stmt ELSE stmt
+    (34) while_stmt -> . WHILE LPAREN expr RPAREN stmt
+    (37) return_stmt -> . RETURN SEMICOLON
+    (38) return_stmt -> . RETURN expr SEMICOLON
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    VOID            reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    BOOL            reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    INT             reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    FLOAT           reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    CHAR            reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    $end            reduce using rule 21 (compound_stmt -> local_decls stmt_list .)
+    SEMICOLON       shift and go to state 44
+    IF              shift and go to state 45
+    WHILE           shift and go to state 47
+    RETURN          shift and go to state 48
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    stmt                           shift and go to state 38
+    expr_stmt                      shift and go to state 39
+    if_stmt                        shift and go to state 40
+    while_stmt                     shift and go to state 41
+    return_stmt                    shift and go to state 42
+    expr                           shift and go to state 43
+
+state 35
+
+    (22) local_decls -> local_decls local_decl .
+
+    VOID            reduce using rule 22 (local_decls -> local_decls local_decl .)
+    BOOL            reduce using rule 22 (local_decls -> local_decls local_decl .)
+    INT             reduce using rule 22 (local_decls -> local_decls local_decl .)
+    FLOAT           reduce using rule 22 (local_decls -> local_decls local_decl .)
+    CHAR            reduce using rule 22 (local_decls -> local_decls local_decl .)
+    SEMICOLON       reduce using rule 22 (local_decls -> local_decls local_decl .)
+    IF              reduce using rule 22 (local_decls -> local_decls local_decl .)
+    WHILE           reduce using rule 22 (local_decls -> local_decls local_decl .)
+    RETURN          reduce using rule 22 (local_decls -> local_decls local_decl .)
+    IDENT           reduce using rule 22 (local_decls -> local_decls local_decl .)
+    !               reduce using rule 22 (local_decls -> local_decls local_decl .)
+    LPAREN          reduce using rule 22 (local_decls -> local_decls local_decl .)
+    NUMBER          reduce using rule 22 (local_decls -> local_decls local_decl .)
+    $end            reduce using rule 22 (local_decls -> local_decls local_decl .)
+
+
+state 36
+
+    (27) stmt_list -> empty .
+
+    SEMICOLON       reduce using rule 27 (stmt_list -> empty .)
+    IF              reduce using rule 27 (stmt_list -> empty .)
+    WHILE           reduce using rule 27 (stmt_list -> empty .)
+    RETURN          reduce using rule 27 (stmt_list -> empty .)
+    IDENT           reduce using rule 27 (stmt_list -> empty .)
+    !               reduce using rule 27 (stmt_list -> empty .)
+    LPAREN          reduce using rule 27 (stmt_list -> empty .)
+    NUMBER          reduce using rule 27 (stmt_list -> empty .)
+    VOID            reduce using rule 27 (stmt_list -> empty .)
+    BOOL            reduce using rule 27 (stmt_list -> empty .)
+    INT             reduce using rule 27 (stmt_list -> empty .)
+    FLOAT           reduce using rule 27 (stmt_list -> empty .)
+    CHAR            reduce using rule 27 (stmt_list -> empty .)
+    $end            reduce using rule 27 (stmt_list -> empty .)
+
+
+state 37
+
+    (24) local_decl -> type_spec . IDENT SEMICOLON
+    (25) local_decl -> type_spec . IDENT LBRACKET RBRACKET SEMICOLON
+
+    IDENT           shift and go to state 52
+
+
+state 38
+
+    (26) stmt_list -> stmt_list stmt .
+
+    SEMICOLON       reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    IF              reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    WHILE           reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    RETURN          reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    IDENT           reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    !               reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    LPAREN          reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    NUMBER          reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    VOID            reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    BOOL            reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    INT             reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    FLOAT           reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    CHAR            reduce using rule 26 (stmt_list -> stmt_list stmt .)
+    $end            reduce using rule 26 (stmt_list -> stmt_list stmt .)
+
+
+state 39
+
+    (28) stmt -> expr_stmt .
+
+    SEMICOLON       reduce using rule 28 (stmt -> expr_stmt .)
+    IF              reduce using rule 28 (stmt -> expr_stmt .)
+    WHILE           reduce using rule 28 (stmt -> expr_stmt .)
+    RETURN          reduce using rule 28 (stmt -> expr_stmt .)
+    IDENT           reduce using rule 28 (stmt -> expr_stmt .)
+    !               reduce using rule 28 (stmt -> expr_stmt .)
+    LPAREN          reduce using rule 28 (stmt -> expr_stmt .)
+    NUMBER          reduce using rule 28 (stmt -> expr_stmt .)
+    VOID            reduce using rule 28 (stmt -> expr_stmt .)
+    BOOL            reduce using rule 28 (stmt -> expr_stmt .)
+    INT             reduce using rule 28 (stmt -> expr_stmt .)
+    FLOAT           reduce using rule 28 (stmt -> expr_stmt .)
+    CHAR            reduce using rule 28 (stmt -> expr_stmt .)
+    $end            reduce using rule 28 (stmt -> expr_stmt .)
+    ELSE            reduce using rule 28 (stmt -> expr_stmt .)
+
+
+state 40
+
+    (29) stmt -> if_stmt .
+
+    SEMICOLON       reduce using rule 29 (stmt -> if_stmt .)
+    IF              reduce using rule 29 (stmt -> if_stmt .)
+    WHILE           reduce using rule 29 (stmt -> if_stmt .)
+    RETURN          reduce using rule 29 (stmt -> if_stmt .)
+    IDENT           reduce using rule 29 (stmt -> if_stmt .)
+    !               reduce using rule 29 (stmt -> if_stmt .)
+    LPAREN          reduce using rule 29 (stmt -> if_stmt .)
+    NUMBER          reduce using rule 29 (stmt -> if_stmt .)
+    VOID            reduce using rule 29 (stmt -> if_stmt .)
+    BOOL            reduce using rule 29 (stmt -> if_stmt .)
+    INT             reduce using rule 29 (stmt -> if_stmt .)
+    FLOAT           reduce using rule 29 (stmt -> if_stmt .)
+    CHAR            reduce using rule 29 (stmt -> if_stmt .)
+    $end            reduce using rule 29 (stmt -> if_stmt .)
+    ELSE            reduce using rule 29 (stmt -> if_stmt .)
+
+
+state 41
+
+    (30) stmt -> while_stmt .
+
+    SEMICOLON       reduce using rule 30 (stmt -> while_stmt .)
+    IF              reduce using rule 30 (stmt -> while_stmt .)
+    WHILE           reduce using rule 30 (stmt -> while_stmt .)
+    RETURN          reduce using rule 30 (stmt -> while_stmt .)
+    IDENT           reduce using rule 30 (stmt -> while_stmt .)
+    !               reduce using rule 30 (stmt -> while_stmt .)
+    LPAREN          reduce using rule 30 (stmt -> while_stmt .)
+    NUMBER          reduce using rule 30 (stmt -> while_stmt .)
+    VOID            reduce using rule 30 (stmt -> while_stmt .)
+    BOOL            reduce using rule 30 (stmt -> while_stmt .)
+    INT             reduce using rule 30 (stmt -> while_stmt .)
+    FLOAT           reduce using rule 30 (stmt -> while_stmt .)
+    CHAR            reduce using rule 30 (stmt -> while_stmt .)
+    $end            reduce using rule 30 (stmt -> while_stmt .)
+    ELSE            reduce using rule 30 (stmt -> while_stmt .)
+
+
+state 42
+
+    (31) stmt -> return_stmt .
+
+    SEMICOLON       reduce using rule 31 (stmt -> return_stmt .)
+    IF              reduce using rule 31 (stmt -> return_stmt .)
+    WHILE           reduce using rule 31 (stmt -> return_stmt .)
+    RETURN          reduce using rule 31 (stmt -> return_stmt .)
+    IDENT           reduce using rule 31 (stmt -> return_stmt .)
+    !               reduce using rule 31 (stmt -> return_stmt .)
+    LPAREN          reduce using rule 31 (stmt -> return_stmt .)
+    NUMBER          reduce using rule 31 (stmt -> return_stmt .)
+    VOID            reduce using rule 31 (stmt -> return_stmt .)
+    BOOL            reduce using rule 31 (stmt -> return_stmt .)
+    INT             reduce using rule 31 (stmt -> return_stmt .)
+    FLOAT           reduce using rule 31 (stmt -> return_stmt .)
+    CHAR            reduce using rule 31 (stmt -> return_stmt .)
+    $end            reduce using rule 31 (stmt -> return_stmt .)
+    ELSE            reduce using rule 31 (stmt -> return_stmt .)
+
+
+state 43
+
+    (32) expr_stmt -> expr . SEMICOLON
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       shift and go to state 53
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 44
+
+    (33) expr_stmt -> SEMICOLON .
+
+    SEMICOLON       reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    IF              reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    WHILE           reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    RETURN          reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    IDENT           reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    !               reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    LPAREN          reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    NUMBER          reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    VOID            reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    BOOL            reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    INT             reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    FLOAT           reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    CHAR            reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    $end            reduce using rule 33 (expr_stmt -> SEMICOLON .)
+    ELSE            reduce using rule 33 (expr_stmt -> SEMICOLON .)
+
+
+state 45
+
+    (35) if_stmt -> IF . LPAREN expr RPAREN stmt
+    (36) if_stmt -> IF . LPAREN expr RPAREN stmt ELSE stmt
+
+    LPAREN          shift and go to state 66
+
+
+state 46
+
+    (54) expr -> LPAREN . expr RPAREN
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 67
+
+state 47
+
+    (34) while_stmt -> WHILE . LPAREN expr RPAREN stmt
+
+    LPAREN          shift and go to state 68
+
+
+state 48
+
+    (37) return_stmt -> RETURN . SEMICOLON
+    (38) return_stmt -> RETURN . expr SEMICOLON
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    SEMICOLON       shift and go to state 69
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 70
+
+state 49
+
+    (39) expr -> IDENT . APPOINTMENT expr
+    (40) expr -> IDENT . LBRACKET expr RBRACKET EQUAL expr
+    (55) expr -> IDENT .
+    (56) expr -> IDENT . LBRACKET expr RBRACKET
+    (57) expr -> IDENT . LPAREN args RPAREN
+
+  ! shift/reduce conflict for APPOINTMENT resolved as shift
+    APPOINTMENT     shift and go to state 71
+    LBRACKET        shift and go to state 72
+    SEMICOLON       reduce using rule 55 (expr -> IDENT .)
+    OR              reduce using rule 55 (expr -> IDENT .)
+    AND             reduce using rule 55 (expr -> IDENT .)
+    EQUAL           reduce using rule 55 (expr -> IDENT .)
+    LESS_THAN_EQUAL reduce using rule 55 (expr -> IDENT .)
+    GREATER_THAN_EQUAL reduce using rule 55 (expr -> IDENT .)
+    LESS_THAN       reduce using rule 55 (expr -> IDENT .)
+    GREATER_THAN    reduce using rule 55 (expr -> IDENT .)
+    TIMES           reduce using rule 55 (expr -> IDENT .)
+    PLUS            reduce using rule 55 (expr -> IDENT .)
+    DIVIDE          reduce using rule 55 (expr -> IDENT .)
+    MINUS           reduce using rule 55 (expr -> IDENT .)
+    RPAREN          reduce using rule 55 (expr -> IDENT .)
+    RBRACKET        reduce using rule 55 (expr -> IDENT .)
+    COMMA           reduce using rule 55 (expr -> IDENT .)
+    LPAREN          shift and go to state 73
+
+  ! APPOINTMENT     [ reduce using rule 55 (expr -> IDENT .) ]
+
+
+state 50
+
+    (58) expr -> NUMBER .
+
+    SEMICOLON       reduce using rule 58 (expr -> NUMBER .)
+    OR              reduce using rule 58 (expr -> NUMBER .)
+    AND             reduce using rule 58 (expr -> NUMBER .)
+    EQUAL           reduce using rule 58 (expr -> NUMBER .)
+    APPOINTMENT     reduce using rule 58 (expr -> NUMBER .)
+    LESS_THAN_EQUAL reduce using rule 58 (expr -> NUMBER .)
+    GREATER_THAN_EQUAL reduce using rule 58 (expr -> NUMBER .)
+    LESS_THAN       reduce using rule 58 (expr -> NUMBER .)
+    GREATER_THAN    reduce using rule 58 (expr -> NUMBER .)
+    TIMES           reduce using rule 58 (expr -> NUMBER .)
+    PLUS            reduce using rule 58 (expr -> NUMBER .)
+    DIVIDE          reduce using rule 58 (expr -> NUMBER .)
+    MINUS           reduce using rule 58 (expr -> NUMBER .)
+    RPAREN          reduce using rule 58 (expr -> NUMBER .)
+    RBRACKET        reduce using rule 58 (expr -> NUMBER .)
+    COMMA           reduce using rule 58 (expr -> NUMBER .)
+
+
+state 51
+
+    (53) expr -> ! . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 74
+
+state 52
+
+    (24) local_decl -> type_spec IDENT . SEMICOLON
+    (25) local_decl -> type_spec IDENT . LBRACKET RBRACKET SEMICOLON
+
+    SEMICOLON       shift and go to state 75
+    LBRACKET        shift and go to state 76
+
+
+state 53
+
+    (32) expr_stmt -> expr SEMICOLON .
+
+    SEMICOLON       reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    IF              reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    WHILE           reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    RETURN          reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    IDENT           reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    !               reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    LPAREN          reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    NUMBER          reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    VOID            reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    BOOL            reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    INT             reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    FLOAT           reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    CHAR            reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    $end            reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+    ELSE            reduce using rule 32 (expr_stmt -> expr SEMICOLON .)
+
+
+state 54
+
+    (41) expr -> expr OR . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 77
+
+state 55
+
+    (42) expr -> expr AND . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 78
+
+state 56
+
+    (43) expr -> expr EQUAL . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 79
+
+state 57
+
+    (44) expr -> expr APPOINTMENT . NUMBER
+
+    NUMBER          shift and go to state 80
+
+
+state 58
+
+    (45) expr -> expr LESS_THAN_EQUAL . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 81
+
+state 59
+
+    (46) expr -> expr GREATER_THAN_EQUAL . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 82
+
+state 60
+
+    (47) expr -> expr LESS_THAN . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 83
+
+state 61
+
+    (48) expr -> expr GREATER_THAN . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 84
+
+state 62
+
+    (49) expr -> expr TIMES . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 85
+
+state 63
+
+    (50) expr -> expr PLUS . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 86
+
+state 64
+
+    (51) expr -> expr DIVIDE . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 87
+
+state 65
+
+    (52) expr -> expr MINUS . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 88
+
+state 66
+
+    (35) if_stmt -> IF LPAREN . expr RPAREN stmt
+    (36) if_stmt -> IF LPAREN . expr RPAREN stmt ELSE stmt
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 89
+
+state 67
+
+    (54) expr -> LPAREN expr . RPAREN
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    RPAREN          shift and go to state 90
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 68
+
+    (34) while_stmt -> WHILE LPAREN . expr RPAREN stmt
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 91
+
+state 69
+
+    (37) return_stmt -> RETURN SEMICOLON .
+
+    SEMICOLON       reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    IF              reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    WHILE           reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    RETURN          reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    IDENT           reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    !               reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    LPAREN          reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    NUMBER          reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    VOID            reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    BOOL            reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    INT             reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    FLOAT           reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    CHAR            reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    $end            reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+    ELSE            reduce using rule 37 (return_stmt -> RETURN SEMICOLON .)
+
+
+state 70
+
+    (38) return_stmt -> RETURN expr . SEMICOLON
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       shift and go to state 92
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 71
+
+    (39) expr -> IDENT APPOINTMENT . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 93
+
+state 72
+
+    (40) expr -> IDENT LBRACKET . expr RBRACKET EQUAL expr
+    (56) expr -> IDENT LBRACKET . expr RBRACKET
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 94
+
+state 73
+
+    (57) expr -> IDENT LPAREN . args RPAREN
+    (61) args -> . arg_list
+    (62) args -> . empty
+    (59) arg_list -> . arg_list COMMA expr
+    (60) arg_list -> . expr
+    (63) empty -> .
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    RPAREN          reduce using rule 63 (empty -> .)
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    args                           shift and go to state 95
+    arg_list                       shift and go to state 96
+    empty                          shift and go to state 97
+    expr                           shift and go to state 98
+
+state 74
+
+    (53) expr -> ! expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for APPOINTMENT resolved as shift
+  ! shift/reduce conflict for LESS_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS_THAN resolved as shift
+  ! shift/reduce conflict for GREATER_THAN resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    SEMICOLON       reduce using rule 53 (expr -> ! expr .)
+    RPAREN          reduce using rule 53 (expr -> ! expr .)
+    RBRACKET        reduce using rule 53 (expr -> ! expr .)
+    COMMA           reduce using rule 53 (expr -> ! expr .)
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! OR              [ reduce using rule 53 (expr -> ! expr .) ]
+  ! AND             [ reduce using rule 53 (expr -> ! expr .) ]
+  ! EQUAL           [ reduce using rule 53 (expr -> ! expr .) ]
+  ! APPOINTMENT     [ reduce using rule 53 (expr -> ! expr .) ]
+  ! LESS_THAN_EQUAL [ reduce using rule 53 (expr -> ! expr .) ]
+  ! GREATER_THAN_EQUAL [ reduce using rule 53 (expr -> ! expr .) ]
+  ! LESS_THAN       [ reduce using rule 53 (expr -> ! expr .) ]
+  ! GREATER_THAN    [ reduce using rule 53 (expr -> ! expr .) ]
+  ! TIMES           [ reduce using rule 53 (expr -> ! expr .) ]
+  ! PLUS            [ reduce using rule 53 (expr -> ! expr .) ]
+  ! DIVIDE          [ reduce using rule 53 (expr -> ! expr .) ]
+  ! MINUS           [ reduce using rule 53 (expr -> ! expr .) ]
+
+
+state 75
+
+    (24) local_decl -> type_spec IDENT SEMICOLON .
+
+    VOID            reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    BOOL            reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    INT             reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    FLOAT           reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    CHAR            reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    SEMICOLON       reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    IF              reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    WHILE           reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    RETURN          reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    IDENT           reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    !               reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    LPAREN          reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    NUMBER          reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+    $end            reduce using rule 24 (local_decl -> type_spec IDENT SEMICOLON .)
+
+
+state 76
+
+    (25) local_decl -> type_spec IDENT LBRACKET . RBRACKET SEMICOLON
+
+    RBRACKET        shift and go to state 99
+
+
+state 77
+
+    (41) expr -> expr OR expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 41 (expr -> expr OR expr .)
+    OR              reduce using rule 41 (expr -> expr OR expr .)
+    AND             reduce using rule 41 (expr -> expr OR expr .)
+    EQUAL           reduce using rule 41 (expr -> expr OR expr .)
+    RPAREN          reduce using rule 41 (expr -> expr OR expr .)
+    RBRACKET        reduce using rule 41 (expr -> expr OR expr .)
+    COMMA           reduce using rule 41 (expr -> expr OR expr .)
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! LESS_THAN_EQUAL [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! GREATER_THAN_EQUAL [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! LESS_THAN       [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! GREATER_THAN    [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! TIMES           [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! PLUS            [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! DIVIDE          [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! MINUS           [ reduce using rule 41 (expr -> expr OR expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+
+
+state 78
+
+    (42) expr -> expr AND expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 42 (expr -> expr AND expr .)
+    OR              reduce using rule 42 (expr -> expr AND expr .)
+    AND             reduce using rule 42 (expr -> expr AND expr .)
+    EQUAL           reduce using rule 42 (expr -> expr AND expr .)
+    RPAREN          reduce using rule 42 (expr -> expr AND expr .)
+    RBRACKET        reduce using rule 42 (expr -> expr AND expr .)
+    COMMA           reduce using rule 42 (expr -> expr AND expr .)
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! LESS_THAN_EQUAL [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! GREATER_THAN_EQUAL [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! LESS_THAN       [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! GREATER_THAN    [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! TIMES           [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! PLUS            [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! DIVIDE          [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! MINUS           [ reduce using rule 42 (expr -> expr AND expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+
+
+state 79
+
+    (43) expr -> expr EQUAL expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for APPOINTMENT resolved as shift
+  ! shift/reduce conflict for LESS_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS_THAN resolved as shift
+  ! shift/reduce conflict for GREATER_THAN resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    SEMICOLON       reduce using rule 43 (expr -> expr EQUAL expr .)
+    RPAREN          reduce using rule 43 (expr -> expr EQUAL expr .)
+    RBRACKET        reduce using rule 43 (expr -> expr EQUAL expr .)
+    COMMA           reduce using rule 43 (expr -> expr EQUAL expr .)
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! OR              [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! AND             [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! EQUAL           [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! APPOINTMENT     [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! LESS_THAN_EQUAL [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! GREATER_THAN_EQUAL [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! LESS_THAN       [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! GREATER_THAN    [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! TIMES           [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! PLUS            [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! DIVIDE          [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+  ! MINUS           [ reduce using rule 43 (expr -> expr EQUAL expr .) ]
+
+
+state 80
+
+    (44) expr -> expr APPOINTMENT NUMBER .
+
+    SEMICOLON       reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    OR              reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    AND             reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    EQUAL           reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    APPOINTMENT     reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    LESS_THAN_EQUAL reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    GREATER_THAN_EQUAL reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    LESS_THAN       reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    GREATER_THAN    reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    TIMES           reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    PLUS            reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    DIVIDE          reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    MINUS           reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    RPAREN          reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    RBRACKET        reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+    COMMA           reduce using rule 44 (expr -> expr APPOINTMENT NUMBER .)
+
+
+state 81
+
+    (45) expr -> expr LESS_THAN_EQUAL expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    OR              reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    AND             reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    EQUAL           reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    LESS_THAN_EQUAL reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    GREATER_THAN_EQUAL reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    LESS_THAN       reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    GREATER_THAN    reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    RPAREN          reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    RBRACKET        reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    COMMA           reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .)
+    APPOINTMENT     shift and go to state 57
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .) ]
+  ! TIMES           [ reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .) ]
+  ! PLUS            [ reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .) ]
+  ! DIVIDE          [ reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .) ]
+  ! MINUS           [ reduce using rule 45 (expr -> expr LESS_THAN_EQUAL expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+
+
+state 82
+
+    (46) expr -> expr GREATER_THAN_EQUAL expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    OR              reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    AND             reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    EQUAL           reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    LESS_THAN_EQUAL reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    GREATER_THAN_EQUAL reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    LESS_THAN       reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    GREATER_THAN    reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    RPAREN          reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    RBRACKET        reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    COMMA           reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .)
+    APPOINTMENT     shift and go to state 57
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .) ]
+  ! TIMES           [ reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .) ]
+  ! PLUS            [ reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .) ]
+  ! DIVIDE          [ reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .) ]
+  ! MINUS           [ reduce using rule 46 (expr -> expr GREATER_THAN_EQUAL expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+
+
+state 83
+
+    (47) expr -> expr LESS_THAN expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    OR              reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    AND             reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    EQUAL           reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    LESS_THAN_EQUAL reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    GREATER_THAN_EQUAL reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    LESS_THAN       reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    GREATER_THAN    reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    RPAREN          reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    RBRACKET        reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    COMMA           reduce using rule 47 (expr -> expr LESS_THAN expr .)
+    APPOINTMENT     shift and go to state 57
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 47 (expr -> expr LESS_THAN expr .) ]
+  ! TIMES           [ reduce using rule 47 (expr -> expr LESS_THAN expr .) ]
+  ! PLUS            [ reduce using rule 47 (expr -> expr LESS_THAN expr .) ]
+  ! DIVIDE          [ reduce using rule 47 (expr -> expr LESS_THAN expr .) ]
+  ! MINUS           [ reduce using rule 47 (expr -> expr LESS_THAN expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+
+
+state 84
+
+    (48) expr -> expr GREATER_THAN expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    OR              reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    AND             reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    EQUAL           reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    LESS_THAN_EQUAL reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    GREATER_THAN_EQUAL reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    LESS_THAN       reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    GREATER_THAN    reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    RPAREN          reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    RBRACKET        reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    COMMA           reduce using rule 48 (expr -> expr GREATER_THAN expr .)
+    APPOINTMENT     shift and go to state 57
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! APPOINTMENT     [ reduce using rule 48 (expr -> expr GREATER_THAN expr .) ]
+  ! TIMES           [ reduce using rule 48 (expr -> expr GREATER_THAN expr .) ]
+  ! PLUS            [ reduce using rule 48 (expr -> expr GREATER_THAN expr .) ]
+  ! DIVIDE          [ reduce using rule 48 (expr -> expr GREATER_THAN expr .) ]
+  ! MINUS           [ reduce using rule 48 (expr -> expr GREATER_THAN expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+
+
+state 85
+
+    (49) expr -> expr TIMES expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 49 (expr -> expr TIMES expr .)
+    OR              reduce using rule 49 (expr -> expr TIMES expr .)
+    AND             reduce using rule 49 (expr -> expr TIMES expr .)
+    EQUAL           reduce using rule 49 (expr -> expr TIMES expr .)
+    APPOINTMENT     reduce using rule 49 (expr -> expr TIMES expr .)
+    LESS_THAN_EQUAL reduce using rule 49 (expr -> expr TIMES expr .)
+    GREATER_THAN_EQUAL reduce using rule 49 (expr -> expr TIMES expr .)
+    LESS_THAN       reduce using rule 49 (expr -> expr TIMES expr .)
+    GREATER_THAN    reduce using rule 49 (expr -> expr TIMES expr .)
+    TIMES           reduce using rule 49 (expr -> expr TIMES expr .)
+    PLUS            reduce using rule 49 (expr -> expr TIMES expr .)
+    DIVIDE          reduce using rule 49 (expr -> expr TIMES expr .)
+    MINUS           reduce using rule 49 (expr -> expr TIMES expr .)
+    RPAREN          reduce using rule 49 (expr -> expr TIMES expr .)
+    RBRACKET        reduce using rule 49 (expr -> expr TIMES expr .)
+    COMMA           reduce using rule 49 (expr -> expr TIMES expr .)
+
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! APPOINTMENT     [ shift and go to state 57 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+  ! TIMES           [ shift and go to state 62 ]
+  ! PLUS            [ shift and go to state 63 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! MINUS           [ shift and go to state 65 ]
+
+
+state 86
+
+    (50) expr -> expr PLUS expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 50 (expr -> expr PLUS expr .)
+    OR              reduce using rule 50 (expr -> expr PLUS expr .)
+    AND             reduce using rule 50 (expr -> expr PLUS expr .)
+    EQUAL           reduce using rule 50 (expr -> expr PLUS expr .)
+    APPOINTMENT     reduce using rule 50 (expr -> expr PLUS expr .)
+    LESS_THAN_EQUAL reduce using rule 50 (expr -> expr PLUS expr .)
+    GREATER_THAN_EQUAL reduce using rule 50 (expr -> expr PLUS expr .)
+    LESS_THAN       reduce using rule 50 (expr -> expr PLUS expr .)
+    GREATER_THAN    reduce using rule 50 (expr -> expr PLUS expr .)
+    PLUS            reduce using rule 50 (expr -> expr PLUS expr .)
+    MINUS           reduce using rule 50 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 50 (expr -> expr PLUS expr .)
+    RBRACKET        reduce using rule 50 (expr -> expr PLUS expr .)
+    COMMA           reduce using rule 50 (expr -> expr PLUS expr .)
+    TIMES           shift and go to state 62
+    DIVIDE          shift and go to state 64
+
+  ! TIMES           [ reduce using rule 50 (expr -> expr PLUS expr .) ]
+  ! DIVIDE          [ reduce using rule 50 (expr -> expr PLUS expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! APPOINTMENT     [ shift and go to state 57 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+  ! PLUS            [ shift and go to state 63 ]
+  ! MINUS           [ shift and go to state 65 ]
+
+
+state 87
+
+    (51) expr -> expr DIVIDE expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 51 (expr -> expr DIVIDE expr .)
+    OR              reduce using rule 51 (expr -> expr DIVIDE expr .)
+    AND             reduce using rule 51 (expr -> expr DIVIDE expr .)
+    EQUAL           reduce using rule 51 (expr -> expr DIVIDE expr .)
+    APPOINTMENT     reduce using rule 51 (expr -> expr DIVIDE expr .)
+    LESS_THAN_EQUAL reduce using rule 51 (expr -> expr DIVIDE expr .)
+    GREATER_THAN_EQUAL reduce using rule 51 (expr -> expr DIVIDE expr .)
+    LESS_THAN       reduce using rule 51 (expr -> expr DIVIDE expr .)
+    GREATER_THAN    reduce using rule 51 (expr -> expr DIVIDE expr .)
+    TIMES           reduce using rule 51 (expr -> expr DIVIDE expr .)
+    PLUS            reduce using rule 51 (expr -> expr DIVIDE expr .)
+    DIVIDE          reduce using rule 51 (expr -> expr DIVIDE expr .)
+    MINUS           reduce using rule 51 (expr -> expr DIVIDE expr .)
+    RPAREN          reduce using rule 51 (expr -> expr DIVIDE expr .)
+    RBRACKET        reduce using rule 51 (expr -> expr DIVIDE expr .)
+    COMMA           reduce using rule 51 (expr -> expr DIVIDE expr .)
+
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! APPOINTMENT     [ shift and go to state 57 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+  ! TIMES           [ shift and go to state 62 ]
+  ! PLUS            [ shift and go to state 63 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! MINUS           [ shift and go to state 65 ]
+
+
+state 88
+
+    (52) expr -> expr MINUS expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 52 (expr -> expr MINUS expr .)
+    OR              reduce using rule 52 (expr -> expr MINUS expr .)
+    AND             reduce using rule 52 (expr -> expr MINUS expr .)
+    EQUAL           reduce using rule 52 (expr -> expr MINUS expr .)
+    APPOINTMENT     reduce using rule 52 (expr -> expr MINUS expr .)
+    LESS_THAN_EQUAL reduce using rule 52 (expr -> expr MINUS expr .)
+    GREATER_THAN_EQUAL reduce using rule 52 (expr -> expr MINUS expr .)
+    LESS_THAN       reduce using rule 52 (expr -> expr MINUS expr .)
+    GREATER_THAN    reduce using rule 52 (expr -> expr MINUS expr .)
+    PLUS            reduce using rule 52 (expr -> expr MINUS expr .)
+    MINUS           reduce using rule 52 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 52 (expr -> expr MINUS expr .)
+    RBRACKET        reduce using rule 52 (expr -> expr MINUS expr .)
+    COMMA           reduce using rule 52 (expr -> expr MINUS expr .)
+    TIMES           shift and go to state 62
+    DIVIDE          shift and go to state 64
+
+  ! TIMES           [ reduce using rule 52 (expr -> expr MINUS expr .) ]
+  ! DIVIDE          [ reduce using rule 52 (expr -> expr MINUS expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! APPOINTMENT     [ shift and go to state 57 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+  ! PLUS            [ shift and go to state 63 ]
+  ! MINUS           [ shift and go to state 65 ]
+
+
+state 89
+
+    (35) if_stmt -> IF LPAREN expr . RPAREN stmt
+    (36) if_stmt -> IF LPAREN expr . RPAREN stmt ELSE stmt
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    RPAREN          shift and go to state 100
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 90
+
+    (54) expr -> LPAREN expr RPAREN .
+
+    SEMICOLON       reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    OR              reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    AND             reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    EQUAL           reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    APPOINTMENT     reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    LESS_THAN_EQUAL reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    GREATER_THAN_EQUAL reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    LESS_THAN       reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    GREATER_THAN    reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    TIMES           reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    PLUS            reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    DIVIDE          reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    MINUS           reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    RBRACKET        reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+    COMMA           reduce using rule 54 (expr -> LPAREN expr RPAREN .)
+
+
+state 91
+
+    (34) while_stmt -> WHILE LPAREN expr . RPAREN stmt
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    RPAREN          shift and go to state 101
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 92
+
+    (38) return_stmt -> RETURN expr SEMICOLON .
+
+    SEMICOLON       reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    IF              reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    WHILE           reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    RETURN          reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    IDENT           reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    !               reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    LPAREN          reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    NUMBER          reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    VOID            reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    BOOL            reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    INT             reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    FLOAT           reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    CHAR            reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    $end            reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+    ELSE            reduce using rule 38 (return_stmt -> RETURN expr SEMICOLON .)
+
+
+state 93
+
+    (39) expr -> IDENT APPOINTMENT expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    SEMICOLON       reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    OR              reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    AND             reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    EQUAL           reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    APPOINTMENT     reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    LESS_THAN_EQUAL reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    GREATER_THAN_EQUAL reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    LESS_THAN       reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    GREATER_THAN    reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    RPAREN          reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    RBRACKET        reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    COMMA           reduce using rule 39 (expr -> IDENT APPOINTMENT expr .)
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! TIMES           [ reduce using rule 39 (expr -> IDENT APPOINTMENT expr .) ]
+  ! PLUS            [ reduce using rule 39 (expr -> IDENT APPOINTMENT expr .) ]
+  ! DIVIDE          [ reduce using rule 39 (expr -> IDENT APPOINTMENT expr .) ]
+  ! MINUS           [ reduce using rule 39 (expr -> IDENT APPOINTMENT expr .) ]
+  ! OR              [ shift and go to state 54 ]
+  ! AND             [ shift and go to state 55 ]
+  ! EQUAL           [ shift and go to state 56 ]
+  ! APPOINTMENT     [ shift and go to state 57 ]
+  ! LESS_THAN_EQUAL [ shift and go to state 58 ]
+  ! GREATER_THAN_EQUAL [ shift and go to state 59 ]
+  ! LESS_THAN       [ shift and go to state 60 ]
+  ! GREATER_THAN    [ shift and go to state 61 ]
+
+
+state 94
+
+    (40) expr -> IDENT LBRACKET expr . RBRACKET EQUAL expr
+    (56) expr -> IDENT LBRACKET expr . RBRACKET
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    RBRACKET        shift and go to state 102
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 95
+
+    (57) expr -> IDENT LPAREN args . RPAREN
+
+    RPAREN          shift and go to state 103
+
+
+state 96
+
+    (61) args -> arg_list .
+    (59) arg_list -> arg_list . COMMA expr
+
+    RPAREN          reduce using rule 61 (args -> arg_list .)
+    COMMA           shift and go to state 104
+
+
+state 97
+
+    (62) args -> empty .
+
+    RPAREN          reduce using rule 62 (args -> empty .)
+
+
+state 98
+
+    (60) arg_list -> expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    COMMA           reduce using rule 60 (arg_list -> expr .)
+    RPAREN          reduce using rule 60 (arg_list -> expr .)
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 99
+
+    (25) local_decl -> type_spec IDENT LBRACKET RBRACKET . SEMICOLON
+
+    SEMICOLON       shift and go to state 105
+
+
+state 100
+
+    (35) if_stmt -> IF LPAREN expr RPAREN . stmt
+    (36) if_stmt -> IF LPAREN expr RPAREN . stmt ELSE stmt
+    (28) stmt -> . expr_stmt
+    (29) stmt -> . if_stmt
+    (30) stmt -> . while_stmt
+    (31) stmt -> . return_stmt
+    (32) expr_stmt -> . expr SEMICOLON
+    (33) expr_stmt -> . SEMICOLON
+    (35) if_stmt -> . IF LPAREN expr RPAREN stmt
+    (36) if_stmt -> . IF LPAREN expr RPAREN stmt ELSE stmt
+    (34) while_stmt -> . WHILE LPAREN expr RPAREN stmt
+    (37) return_stmt -> . RETURN SEMICOLON
+    (38) return_stmt -> . RETURN expr SEMICOLON
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    SEMICOLON       shift and go to state 44
+    IF              shift and go to state 45
+    WHILE           shift and go to state 47
+    RETURN          shift and go to state 48
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 43
+    stmt                           shift and go to state 106
+    expr_stmt                      shift and go to state 39
+    if_stmt                        shift and go to state 40
+    while_stmt                     shift and go to state 41
+    return_stmt                    shift and go to state 42
+
+state 101
+
+    (34) while_stmt -> WHILE LPAREN expr RPAREN . stmt
+    (28) stmt -> . expr_stmt
+    (29) stmt -> . if_stmt
+    (30) stmt -> . while_stmt
+    (31) stmt -> . return_stmt
+    (32) expr_stmt -> . expr SEMICOLON
+    (33) expr_stmt -> . SEMICOLON
+    (35) if_stmt -> . IF LPAREN expr RPAREN stmt
+    (36) if_stmt -> . IF LPAREN expr RPAREN stmt ELSE stmt
+    (34) while_stmt -> . WHILE LPAREN expr RPAREN stmt
+    (37) return_stmt -> . RETURN SEMICOLON
+    (38) return_stmt -> . RETURN expr SEMICOLON
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    SEMICOLON       shift and go to state 44
+    IF              shift and go to state 45
+    WHILE           shift and go to state 47
+    RETURN          shift and go to state 48
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 43
+    stmt                           shift and go to state 107
+    expr_stmt                      shift and go to state 39
+    if_stmt                        shift and go to state 40
+    while_stmt                     shift and go to state 41
+    return_stmt                    shift and go to state 42
+
+state 102
+
+    (40) expr -> IDENT LBRACKET expr RBRACKET . EQUAL expr
+    (56) expr -> IDENT LBRACKET expr RBRACKET .
+
+  ! shift/reduce conflict for EQUAL resolved as shift
+    EQUAL           shift and go to state 108
+    SEMICOLON       reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    OR              reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    AND             reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    APPOINTMENT     reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    LESS_THAN_EQUAL reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    GREATER_THAN_EQUAL reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    LESS_THAN       reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    GREATER_THAN    reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    TIMES           reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    PLUS            reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    DIVIDE          reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    MINUS           reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    RPAREN          reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    RBRACKET        reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+    COMMA           reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .)
+
+  ! EQUAL           [ reduce using rule 56 (expr -> IDENT LBRACKET expr RBRACKET .) ]
+
+
+state 103
+
+    (57) expr -> IDENT LPAREN args RPAREN .
+
+    SEMICOLON       reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    OR              reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    AND             reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    EQUAL           reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    APPOINTMENT     reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    LESS_THAN_EQUAL reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    GREATER_THAN_EQUAL reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    LESS_THAN       reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    GREATER_THAN    reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    TIMES           reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    PLUS            reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    DIVIDE          reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    MINUS           reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    RPAREN          reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    RBRACKET        reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+    COMMA           reduce using rule 57 (expr -> IDENT LPAREN args RPAREN .)
+
+
+state 104
+
+    (59) arg_list -> arg_list COMMA . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 109
+
+state 105
+
+    (25) local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .
+
+    VOID            reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    BOOL            reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    INT             reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    FLOAT           reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    CHAR            reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    SEMICOLON       reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    IF              reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    WHILE           reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    RETURN          reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    IDENT           reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    !               reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    LPAREN          reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    NUMBER          reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+    $end            reduce using rule 25 (local_decl -> type_spec IDENT LBRACKET RBRACKET SEMICOLON .)
+
+
+state 106
+
+    (35) if_stmt -> IF LPAREN expr RPAREN stmt .
+    (36) if_stmt -> IF LPAREN expr RPAREN stmt . ELSE stmt
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    SEMICOLON       reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    IF              reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    WHILE           reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    RETURN          reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    IDENT           reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    !               reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    LPAREN          reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    NUMBER          reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    VOID            reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    BOOL            reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    INT             reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    FLOAT           reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    CHAR            reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    $end            reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .)
+    ELSE            shift and go to state 110
+
+  ! ELSE            [ reduce using rule 35 (if_stmt -> IF LPAREN expr RPAREN stmt .) ]
+
+
+state 107
+
+    (34) while_stmt -> WHILE LPAREN expr RPAREN stmt .
+
+    SEMICOLON       reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    IF              reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    WHILE           reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    RETURN          reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    IDENT           reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    !               reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    LPAREN          reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    NUMBER          reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    VOID            reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    BOOL            reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    INT             reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    FLOAT           reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    CHAR            reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    $end            reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+    ELSE            reduce using rule 34 (while_stmt -> WHILE LPAREN expr RPAREN stmt .)
+
+
+state 108
+
+    (40) expr -> IDENT LBRACKET expr RBRACKET EQUAL . expr
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 111
+
+state 109
+
+    (59) arg_list -> arg_list COMMA expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+    COMMA           reduce using rule 59 (arg_list -> arg_list COMMA expr .)
+    RPAREN          reduce using rule 59 (arg_list -> arg_list COMMA expr .)
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+
+state 110
+
+    (36) if_stmt -> IF LPAREN expr RPAREN stmt ELSE . stmt
+    (28) stmt -> . expr_stmt
+    (29) stmt -> . if_stmt
+    (30) stmt -> . while_stmt
+    (31) stmt -> . return_stmt
+    (32) expr_stmt -> . expr SEMICOLON
+    (33) expr_stmt -> . SEMICOLON
+    (35) if_stmt -> . IF LPAREN expr RPAREN stmt
+    (36) if_stmt -> . IF LPAREN expr RPAREN stmt ELSE stmt
+    (34) while_stmt -> . WHILE LPAREN expr RPAREN stmt
+    (37) return_stmt -> . RETURN SEMICOLON
+    (38) return_stmt -> . RETURN expr SEMICOLON
+    (39) expr -> . IDENT APPOINTMENT expr
+    (40) expr -> . IDENT LBRACKET expr RBRACKET EQUAL expr
+    (41) expr -> . expr OR expr
+    (42) expr -> . expr AND expr
+    (43) expr -> . expr EQUAL expr
+    (44) expr -> . expr APPOINTMENT NUMBER
+    (45) expr -> . expr LESS_THAN_EQUAL expr
+    (46) expr -> . expr GREATER_THAN_EQUAL expr
+    (47) expr -> . expr LESS_THAN expr
+    (48) expr -> . expr GREATER_THAN expr
+    (49) expr -> . expr TIMES expr
+    (50) expr -> . expr PLUS expr
+    (51) expr -> . expr DIVIDE expr
+    (52) expr -> . expr MINUS expr
+    (53) expr -> . ! expr
+    (54) expr -> . LPAREN expr RPAREN
+    (55) expr -> . IDENT
+    (56) expr -> . IDENT LBRACKET expr RBRACKET
+    (57) expr -> . IDENT LPAREN args RPAREN
+    (58) expr -> . NUMBER
+
+    SEMICOLON       shift and go to state 44
+    IF              shift and go to state 45
+    WHILE           shift and go to state 47
+    RETURN          shift and go to state 48
+    IDENT           shift and go to state 49
+    !               shift and go to state 51
+    LPAREN          shift and go to state 46
+    NUMBER          shift and go to state 50
+
+    expr                           shift and go to state 43
+    stmt                           shift and go to state 112
+    expr_stmt                      shift and go to state 39
+    if_stmt                        shift and go to state 40
+    while_stmt                     shift and go to state 41
+    return_stmt                    shift and go to state 42
+
+state 111
+
+    (40) expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .
+    (41) expr -> expr . OR expr
+    (42) expr -> expr . AND expr
+    (43) expr -> expr . EQUAL expr
+    (44) expr -> expr . APPOINTMENT NUMBER
+    (45) expr -> expr . LESS_THAN_EQUAL expr
+    (46) expr -> expr . GREATER_THAN_EQUAL expr
+    (47) expr -> expr . LESS_THAN expr
+    (48) expr -> expr . GREATER_THAN expr
+    (49) expr -> expr . TIMES expr
+    (50) expr -> expr . PLUS expr
+    (51) expr -> expr . DIVIDE expr
+    (52) expr -> expr . MINUS expr
+
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for APPOINTMENT resolved as shift
+  ! shift/reduce conflict for LESS_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_THAN_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS_THAN resolved as shift
+  ! shift/reduce conflict for GREATER_THAN resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    SEMICOLON       reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .)
+    RPAREN          reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .)
+    RBRACKET        reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .)
+    COMMA           reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .)
+    OR              shift and go to state 54
+    AND             shift and go to state 55
+    EQUAL           shift and go to state 56
+    APPOINTMENT     shift and go to state 57
+    LESS_THAN_EQUAL shift and go to state 58
+    GREATER_THAN_EQUAL shift and go to state 59
+    LESS_THAN       shift and go to state 60
+    GREATER_THAN    shift and go to state 61
+    TIMES           shift and go to state 62
+    PLUS            shift and go to state 63
+    DIVIDE          shift and go to state 64
+    MINUS           shift and go to state 65
+
+  ! OR              [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! AND             [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! EQUAL           [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! APPOINTMENT     [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! LESS_THAN_EQUAL [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! GREATER_THAN_EQUAL [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! LESS_THAN       [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! GREATER_THAN    [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! TIMES           [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! PLUS            [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! DIVIDE          [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+  ! MINUS           [ reduce using rule 40 (expr -> IDENT LBRACKET expr RBRACKET EQUAL expr .) ]
+
+
+state 112
+
+    (36) if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .
+
+    SEMICOLON       reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    IF              reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    WHILE           reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    RETURN          reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    IDENT           reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    !               reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    LPAREN          reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    NUMBER          reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    VOID            reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    BOOL            reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    INT             reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    FLOAT           reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    CHAR            reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    $end            reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+    ELSE            reduce using rule 36 (if_stmt -> IF LPAREN expr RPAREN stmt ELSE stmt .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for VOID in state 30 resolved as shift
+WARNING: shift/reduce conflict for BOOL in state 30 resolved as shift
+WARNING: shift/reduce conflict for INT in state 30 resolved as shift
+WARNING: shift/reduce conflict for FLOAT in state 30 resolved as shift
+WARNING: shift/reduce conflict for CHAR in state 30 resolved as shift
+WARNING: shift/reduce conflict for APPOINTMENT in state 49 resolved as shift
+WARNING: shift/reduce conflict for OR in state 74 resolved as shift
+WARNING: shift/reduce conflict for AND in state 74 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 74 resolved as shift
+WARNING: shift/reduce conflict for APPOINTMENT in state 74 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN_EQUAL in state 74 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN_EQUAL in state 74 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN in state 74 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN in state 74 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 74 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 74 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 74 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 74 resolved as shift
+WARNING: shift/reduce conflict for OR in state 79 resolved as shift
+WARNING: shift/reduce conflict for AND in state 79 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 79 resolved as shift
+WARNING: shift/reduce conflict for APPOINTMENT in state 79 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN_EQUAL in state 79 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN_EQUAL in state 79 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN in state 79 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN in state 79 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 79 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 79 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 79 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 79 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 102 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 106 resolved as shift
+WARNING: shift/reduce conflict for OR in state 111 resolved as shift
+WARNING: shift/reduce conflict for AND in state 111 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 111 resolved as shift
+WARNING: shift/reduce conflict for APPOINTMENT in state 111 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN_EQUAL in state 111 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN_EQUAL in state 111 resolved as shift
+WARNING: shift/reduce conflict for LESS_THAN in state 111 resolved as shift
+WARNING: shift/reduce conflict for GREATER_THAN in state 111 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 111 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 111 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 111 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 111 resolved as shift
